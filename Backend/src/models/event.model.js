@@ -34,7 +34,7 @@ const EventSchema = new mongoose.Schema({
 
     createdBy: {
         type: mongoose.Types.ObjectId,
-        ref: 'Admin',
+        ref: 'User',
         required: true,
     },
 

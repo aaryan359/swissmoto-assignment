@@ -48,31 +48,7 @@ const OrganisersSection = () => {
         </button>
       </div>
 
-      {/* Cards */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
-        {organisers.map((organiser, index) => (
-          <div
-            key={index}
-            className="bg-white border border-gray-200 rounded-xl shadow-md p-4 text-center"
-          >
-            {/* Profile Image */}
-            <img
-              src={organiser.image}
-              alt={organiser.name}
-              className="w-16 h-16 rounded-full mx-auto mb-4 object-cover"
-            />
-            {/* Name and Followers */}
-            <h2 className="text-lg font-semibold text-gray-900">
-              {organiser.name}
-            </h2>
-            <p className="text-sm text-gray-500">{organiser.followers}</p>
-            {/* Follow Button */}
-            <button className="mt-4 w-full bg-blue-700 text-white py-2 rounded-md font-medium hover:bg-blue-800">
-              Follow
-            </button>
-          </div>
-        ))}
-      </div>
+      
     </div>
   );
 };

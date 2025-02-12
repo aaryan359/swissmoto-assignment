@@ -2,6 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const env = require('dotenv');
 const DBconnect = require('./config/db_connect');
+const authRoutes = require('./routes/user_routes/authRoutes');
+
 
 env.config();
 
@@ -19,6 +21,8 @@ app.use(express.json());
 //calling db connect functions
 DBconnect();
 
+//signup route
+app.use('/api/user',authRoutes);
 
 
 

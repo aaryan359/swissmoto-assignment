@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const AttendeeSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
 
     name: {
         type: String,
@@ -14,6 +14,11 @@ const AttendeeSchema = new mongoose.Schema({
         match: [/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/, 'Please fill a valid email address']
     },
 
+    password:{
+        type:String,
+        required:true
+
+    },
     phone: {
         type: String,
         required: false, 
@@ -27,25 +32,11 @@ const AttendeeSchema = new mongoose.Schema({
     event: {
         type: mongoose.Types.ObjectId,
         ref: 'Event', 
-        required: [true, 'Event ID is required']
     },
+    
 
-    status: {
-        type: String,
-        enum: ['Attending', 'Interested', 'Not Attending'],
-        default: 'Interested'
-    },
-
-    // Optional: You can store the ticket number or a QR code for the attendee
-    ticketNumber: {
-        type: String,
-        unique: true,
-        default: function () {
-            return `TICKET-${Math.floor(Math.random() * 1000000)}`;
-        }
-    }
 
 }, {timestamps: true});
 
-const Attendee = mongoose.model('Attendee', AttendeeSchema);
-module.exports = Attendee;
+const User = mongoose.model('User', userSchema);
+module.exports = User;
